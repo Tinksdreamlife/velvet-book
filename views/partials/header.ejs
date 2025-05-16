@@ -4,15 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/main.css">
-  <title>Express Starter</title>
+  <title>The Velvet Book</title>
 </head>
 <body>
   <nav>
     <a href="/">🏠</a>
+
+
     <div>
-      <a href="/unicorns">ALL UNICORNS</a>
+      <!-- Why is there an "all unicorns button"? 
+       Does this make sense for my app as it 
+       is a 1 user to many entries app? -->
+       
+      <!-- <a href="/unicorns">ALL UNICORNS</a> -->
+
       <% if (user) { %>
-        <a href="/unicorns/new">ADD UNICORN</a>
+        <a href="/vb-users/new">ADD PROFILE</a>
         <a href="/auth/sign-out">SIGN OUT</a>
         <span><%= user.name %></span>
       <% } else { %>

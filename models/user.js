@@ -3,22 +3,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  email: {
+  username: {
     type: String,
-    required: true,
     unique: true,
-    lowercase: true
-  },
-  name: {
-    type: String
+    required: true,
   },
   password: {
     type: String,
     required: true,
   },
-}, {
+ 
+  // NOTE: 05-16-25 the timestamp function was crashing 
+  // the app so I need to look at why and what it was made for
   // Mongoose will maintain a createdAt & updatedAt property
-  timestamps: true
+  // timestamps: true
 });
 
 module.exports = mongoose.model("User", userSchema);

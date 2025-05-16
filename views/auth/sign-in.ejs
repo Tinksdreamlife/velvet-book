@@ -3,10 +3,17 @@
 <h1>Sign In</h1>
 
 <form action="/auth/sign-in" method="POST">
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email" />
+
+   <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required />
+    
+  <!-- Add back if EMAIL is REQUIRED IN ASSIGNMENT -->
+  <!-- <label for="email">Email:</label>
+  <input type="email" name="email" id="email" /> -->
+
   <label for="password">Password:</label>
   <input type="password" name="password" id="password" />
+  
   <button type="submit">SIGN IN</button>
 </form>
 
