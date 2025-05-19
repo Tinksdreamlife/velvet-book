@@ -3,6 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
+const eventsRouter = require('./controllers/eventsrouter');
+
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 // logging middleware
@@ -11,6 +13,12 @@ const session = require('express-session');
 
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT || 3000;
+
+
+// Learned this is supposed to enable EJS rendering (below)
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }));
+
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -42,6 +50,9 @@ app.use(session({
 // If a user is logged in, add the user's doc to req.user and res.locals.user
 app.use(require('./middleware/add-user-to-req-and-locals'));
 
+// configures EJS to support root-based includes:
+const path = require('path');
+app.set('views', path.join(__dirname, 'views'));
 
 // Routes below
 
@@ -57,7 +68,7 @@ app.use('/auth', require('./controllers/auth'));
 
 // Update the unicorns data resource with your "main" resource
 app.use('//vb-users', require('./controllers/vb-users'));
-
+app.use('/events', eventsRouter); //for the NEW, EDIT and DELETE events
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

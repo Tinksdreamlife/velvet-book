@@ -7,27 +7,11 @@
   <title>The Velvet Book</title>
 </head>
 <body>
-  <nav>
-    <a href="/">🏠</a>
-
-
-    <div>
+  <%- include('../partials/_navbar') %>
+  
       <!-- Why is there an "all unicorns button"? 
        Does this make sense for my app as it 
        is a 1 user to many entries app? -->
        
       <!-- <a href="/unicorns">ALL UNICORNS</a> -->
-
-      <% if (user) { %>
-        <a href="/vb-users/new">ADD EVENT</a>
-        <a href="/vb-users/edit">EDIT EVENT</a>
-        <a href="/vb-users/delete">DELETE EVENT</a>
-        <a href="/auth/sign-out">SIGN OUT</a>
-        <span><%= user.name %></span>
-      <% } else { %>
-        <a href="/auth/sign-up">SIGN UP</a>
-        <a href="/auth/sign-in">SIGN IN</a>
-      <% } %>
-    </div>
-  </nav>
   <main>
