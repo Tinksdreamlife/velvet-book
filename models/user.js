@@ -1,6 +1,50 @@
+const { text } = require('express');
 const mongoose = require("mongoose");
 // shortcut variable
 const Schema = mongoose.Schema;
+
+const eventSchema = new mongoose.Schema({
+
+  dateOfEvent: {
+    type: Date,
+    required: true,
+  },
+
+  venueName: {
+    type: String,
+    required: true,
+  }, 
+  
+  income: {
+    type: Number,
+    required: true,
+  },
+
+  expenseHouseFee: {
+    type: Number,
+    required: true,
+  },
+
+  expenseTipOut: {
+    type: Number,
+    required: true,
+  },
+
+  expenseTravel: {
+    type: Number,
+    required: true,
+  },
+
+  expensePromo: {
+    type: Number,
+    required: true,
+  },
+
+  expenseOther: {
+    type: Number,
+    note: String,
+  },
+})
 
 const userSchema = new Schema({
   username: {
@@ -17,6 +61,11 @@ const userSchema = new Schema({
   // the app so I need to look at why and what it was made for
   // Mongoose will maintain a createdAt & updatedAt property
   // timestamps: true
+
+  events: [eventSchema]
+
 });
 
-module.exports = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-// User = require('..models.user.js');
+User = require('../models/user.js');
 
 // Middleware used to protect routes that need a logged in user
 const ensureLoggedIn = require('../middleware/ensure-logged-in');

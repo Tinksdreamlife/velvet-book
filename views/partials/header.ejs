@@ -19,7 +19,9 @@
       <!-- <a href="/unicorns">ALL UNICORNS</a> -->
 
       <% if (user) { %>
-        <a href="/vb-users/new">ADD PROFILE</a>
+        <a href="/vb-users/new">ADD EVENT</a>
+        <a href="/vb-users/edit">EDIT EVENT</a>
+        <a href="/vb-users/delete">DELETE EVENT</a>
         <a href="/auth/sign-out">SIGN OUT</a>
         <span><%= user.name %></span>
       <% } else { %>
