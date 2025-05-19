@@ -41,9 +41,9 @@ const eventSchema = new mongoose.Schema({
   },
 
   expenseOther: {
-    type: Number,
-    note: String,
-  },
+  amount: { type: Number, required: true },
+  note: { type: String }
+}
 })
 
 const userSchema = new Schema({

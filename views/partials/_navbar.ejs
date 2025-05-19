@@ -1,13 +1,13 @@
 <nav>
   <a href="/">🏠</a>
 
-  
+
 
   <div>
     <% if (user) { %>
       <a href="/events/new">ADD EVENT</a>
-      <a href="/vb-users/edit">EDIT EVENT</a>
-      <a href="/vb-users/delete">DELETE EVENT</a>
+      <a href="/events/edit">EDIT EVENT</a>
+      <a href="/events/delete">DELETE EVENT</a>
       <a href="/auth/sign-out">SIGN OUT</a>
       <span>
         <%= user.name %>

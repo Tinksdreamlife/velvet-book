@@ -32,8 +32,14 @@ mongoose.connection.on("connected", () => {
 // when requested by the browser.
 // 'public' is the folder name that all static assets will be saved in.
 app.use(express.static('public'));
+
 // Middleware to parse URL-encoded data from forms
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
+//The above was taken out because it was conflicting with the true
+// statement at the beginning 
+//and it was better to keep the true statement because that
+// allows nested objects!
+
 // Middleware for using HTTP verbs such as PUT or DELETE
 app.use(methodOverride("_method"));
 // Morgan for logging HTTP requests
@@ -69,6 +75,10 @@ app.use('/auth', require('./controllers/auth'));
 // Update the unicorns data resource with your "main" resource
 app.use('//vb-users', require('./controllers/vb-users'));
 app.use('/events', eventsRouter); //for the NEW, EDIT and DELETE events
+
+
+// This is the route to POST the ADD EVENT form
+
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

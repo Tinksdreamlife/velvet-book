@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Event</title>
 </head>
+
 <body>
-     <%- include('../partials/_navbar.ejs') %>
-    <h1>Add a New Event</h1>
+    <%- include('../partials/_navbar.ejs') %>
+        <h1>Add a New Event</h1>
 
-    <form action="/events" method="POST">
-        
-        <!-- Date of Event -->
-        <label for="dateofEvent">Date of Event:</label>
-        <input type="date" name ="dateofEvent" id ="dateofEvent" required /><br> 
+        <form action="/events" method="POST">
 
-        <!-- Venue Name -->
-        <label for="venueName">Venue Name:</label>
-        <input type="text" name= "venueName" id="venueName" required /><br> 
+            <!-- Date of Event -->
+            <label for="dateOfEvent">Date of Event:</label>
+            <input type="date" name="dateOfEvent" id="dateFfEvent" required /><br>
 
-       <!-- Income -->
-        <label for="income">Income ($):</label>
-        <input type="number" name="income" id="income" step="0.01" required /><br> 
-       
-        <!-- House Fee -->
-        <label for="expenseHouseFee">House Fee ($):</label>
-        <input type="number" name="expenseHouseFee" id="expenseHouseFee" step="0.01" required /><br> 
-       
-        <!-- Tip Out -->
-        <label for="expenseTipOut">Tip Out($):</label>
-        <input type="number" name="expenseTipOut" id="expenseTipOut" step="0.01" required /><br> 
-       
-        <!-- Travel -->
-        <label for="expenseTravel">Travel ($):</label>
-        <input type="number" name="expenseTravel" id="expenseTravel" step="0.01" required /> <br>   
-       
-        <!-- Promo -->
-        <label for="expensePromo">Promo ($):</label>
-        <input type="number" name="expensePromo" id="expensePromo" step="0.01" required /> <br> 
-       
-        <!-- Other Expenses -->
-        <label for="expenseOther">Other Expense ($):</label>
-        <input type="number" name="expenseOther" id="expenseOther" step="0.01" required /><br> 
-       
-        <!-- Optional Note -->
-        <label for="expenseOtherNote">Other Expense Note:</label>
-        <input type="text" name="expenseOtherNote" id="expenseOtherNote" /><br> 
+            <!-- Venue Name -->
+            <label for="venueName">Venue Name:</label>
+            <input type="text" name="venueName" id="venueName" required /><br>
 
-        
-    <button type="submit">ADD EVENT</button>
-    </form>
+            <!-- Income -->
+            <label for="income">Income ($):</label>
+            <input type="number" name="income" id="income" step="0.01" required /><br>
+
+            <!-- House Fee -->
+            <label for="expenseHouseFee">House Fee ($):</label>
+            <input type="number" name="expenseHouseFee" id="expenseHouseFee" step="0.01" required /><br>
+
+            <!-- Tip Out -->
+            <label for="expenseTipOut">Tip Out($):</label>
+            <input type="number" name="expenseTipOut" id="expenseTipOut" step="0.01" required /><br>
+
+            <!-- Travel -->
+            <label for="expenseTravel">Travel ($):</label>
+            <input type="number" name="expenseTravel" id="expenseTravel" step="0.01" required /> <br>
+
+            <!-- Promo -->
+            <label for="expensePromo">Promo ($):</label>
+            <input type="number" name="expensePromo" id="expensePromo" step="0.01" required /> <br>
+
+            <!-- Other Expenses -->
+            <label for="expenseOtherAmount">Other Expense ($):</label>
+            <input type="number" name="expenseOther.amount" id="expenseOtherAmount" step="0.01" required /><br>
+
+            <!-- Optional Note -->
+            <label for="expenseOtherNote">Other Expense Note:</label>
+            <input type="text" name="expenseOther.note" id="expenseOtherNote" /><br>
+
+
+            <button type="submit">ADD EVENT</button>
+        </form>
 </body>
+
 </html>
