@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// GET allevents - SHOW all events for this user
+// GET allevents - Makes them seen but still not clickable
 router.get('/allevents', async (req, res) => {
     try {
         const user = req.user;
@@ -49,6 +49,31 @@ router.get('/allevents', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).send("Error loading events.");
+    }
+});
+
+// GET/events/:eventId - in order to see the deets for a single event
+router.get('/eventId', async (req, res) => {
+
+    try {
+        const user = req.user;
+        const eventId = req.params.eventId;
+
+        if (!user) {
+            return res.status(401).send("You must be logged in to view events.")
+        }
+
+        const populatedUser = await User.findById(user._id);
+        const event = populatedUser.events.id(eventId);
+
+        if (!event) {
+            return res.status(404).send("Event not found.");
+        }
+
+        res.render('events/showevent', { event });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error retrieving event.");
     }
 });
 

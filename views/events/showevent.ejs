@@ -1,0 +1,25 @@
+<%- include('../partials/_navbar.ejs') %>
+
+    <h1>
+        <%= event.venueName %> - <%= new Date(event.dateOfEvent).toDateString() %>
+    </h1>
+
+    <ul>
+        <li><strong>Income:</strong> $<%= event.income %>
+        </li>
+        <li><strong>House Fee:</strong> $<%= event.expenseHouseFee %>
+        </li>
+        <li><strong>Tip Out:</strong> $<%= event.expenseTipOut %>
+        </li>
+        <li><strong>Travel:</strong> $<%= event.expenseTravel %>
+        </li>
+        <li><strong>Promo:</strong> $<%= event.expensePromo %>
+        </li>
+        <li><strong>Other Expenses:</strong> $<%= event.expenseOther.amount %>
+        </li>
+        <li><strong>Note:</strong>
+            <%= event.expenseOther.note %>
+        </li>
+    </ul>
+
+    <a href="/events/allevents">🔙 Back to all events</a>
