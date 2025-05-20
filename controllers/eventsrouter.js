@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../models/user.js');
+const { parse } = require('dotenv');
 const router = express.Router();
 
 
@@ -53,10 +54,10 @@ router.get('/allevents', async (req, res) => {
 });
 
 // GET/events/:eventId - in order to see the deets for a single event
-router.get('/eventId', async (req, res) => {
+router.get('/:eventId', async (req, res) => {
 
     try {
-        const user = req.user;
+        const user = req.user || await User.findById(req.session.userId);
         const eventId = req.params.eventId;
 
         if (!user) {
@@ -71,10 +72,35 @@ router.get('/eventId', async (req, res) => {
         }
 
         res.render('events/showevent', { event });
+        
     } catch (err) {
         console.error(err);
         res.status(500).send("Error retrieving event.");
     }
 });
+
+// router.get('/:index', async (req, res) => {
+
+//     try {
+//         const index = parseInt(req.params.index);
+//         const populatedUser = await User.findById(req.session.userid);
+
+//         if (!populatedUser) {
+//             return res.status(401).send("User not found.")
+//         }
+
+//         const event = populatedUser.events[index];
+
+//         if (!event) {
+//             return res.status(404).send("Event not found.");
+//         }
+
+//         res.render('events/showevent', { event });
+
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).send("Server error retrieving event.");
+//     }
+// });
 
 module.exports = router;
