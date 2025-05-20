@@ -72,35 +72,66 @@ router.get('/:eventId', async (req, res) => {
         }
 
         res.render('events/showevent', { event });
-        
+
     } catch (err) {
         console.error(err);
         res.status(500).send("Error retrieving event.");
     }
 });
 
-// router.get('/:index', async (req, res) => {
+// EDIT route/action - part 1
+// GET /events/:eventsId/edit to SHOW form
 
-//     try {
-//         const index = parseInt(req.params.index);
-//         const populatedUser = await User.findById(req.session.userid);
+router.get('/:eventId/edit', async (req, res) => {
+    try {
+        const user = req.user || await User.findById(req.session.userId);
+        const eventId = req.params.eventId;
 
-//         if (!populatedUser) {
-//             return res.status(401).send("User not found.")
-//         }
+        if (!user) return res.status(401).send("You must be logged in");
+            const populatedUser = await User.findById(user._id);
+            const event = populatedUser.events.id(eventId);
+           
+            if (!event) return res.status(404).send("Event not found.");
 
-//         const event = populatedUser.events[index];
+        res.render('events/editevent', { event });
 
-//         if (!event) {
-//             return res.status(404).send("Event not found.");
-//         }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error loading event form.");
+    }
+});
 
-//         res.render('events/showevent', { event });
+// EDIT route/action - part 2
+// PUT /events/:eventID to SUBMIT form and UPDATE
 
-//     } catch (err) {
-//         console.error(err);
-//         res.status(500).send("Server error retrieving event.");
-//     }
-// });
+router.put('/:eventId', async (req, res) => {
+    try {
+        const user = req.user || await User.findById(req.session.userId);
+        const eventId = req.params.eventId;
+
+        if (!user) return res.status(401).send("You must be logged in.");
+        const populatedUser = await User.findById(user._id);
+        const event = populatedUser.events.id(eventId);
+
+        if (!event) return res.status(404).send("Event not found.");
+
+        event.dateOfEvent = req.body.dateOfEvent;
+        event.venueName = req.body.venueName;
+        event.income = req.body.income;
+        event.expenseHouseFee = req.body.expenseHouseFee;
+        event.expenseTipOut = req.body.expenseTipOut;
+        event.expenseTravel = req.body.expenseTravel;
+        event.expensePromo = req.body.expensePromo;
+        event.expenseOther = {
+            amount: req.body["expenseOther.amount"],
+            note: req.body["expenseOther.note"],
+        };
+        await populatedUser.save();
+        res.redirect(`/events/${eventId}`);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error updating event.");
+    }
+});
 
 module.exports = router;

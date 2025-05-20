@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+        <h1>Edit an Event</h1>
+
+        <form action="/events/<%= event._id %>?_method=PUT" method="POST">
+
+            <!-- Date of Event -->
+            <label for="dateOfEvent">Date of Event:</label>
+            <input type="date" name="dateOfEvent" value="<%= event.dateOfEvent.toISOString().split('T')[0] %>" required /><br>
+
+            <!-- Venue Name -->
+            <label for="venueName">Venue Name:</label>
+            <input type="text" name="venueName" value="<%= event.venueName %>" required /><br>
+
+            <!-- Income -->
+            <label for="income">Income ($):</label>
+            <input type="number" name="income" value="<%= event.income %>" step="0.01" required /><br>
+
+            <!-- House Fee -->
+            <label for="expenseHouseFee">House Fee ($):</label>
+            <input type="number" name="expenseHouseFee" value="<%= event.expenseHouseFee"%> step="0.01" required /><br>
+
+            <!-- Tip Out -->
+            <label for="expenseTipOut">Tip Out($):</label>
+            <input type="number" name="expenseTipOut" value="<%= event.expenseTipOut %>" step="0.01" required /><br>
+
+            <!-- Travel -->
+            <label for="expenseTravel">Travel ($):</label>
+            <input type="number" name="expenseTravel" value="<%= rvent.expenseTravel %>" step="0.01" required /> <br>
+
+            <!-- Promo -->
+            <label for="expensePromo">Promo ($):</label>
+            <input type="number" name="expensePromo" value="<%= event.expensePromo %>" step="0.01" required /> <br>
+
+            <!-- Other Expenses written differently than other lines due to embedded Schema--> 
+            <label for="expenseOtherAmount">Other Expense ($):</label>
+            <input type="number" name="expenseOther.amount" value="<% event.expenseOther?.amount || '' %>" step="0.01" required /><br>
+
+            <!-- Optional Note written differently than other lines due to embedded Schema-->
+            <label for="expenseOtherNote">Other Expense Note:</label>
+            <input type="text" name="expenseOther.note" value="<%+ event.expenseOther?.note || '' %>" /><br>
+
+
+            <button type="submit">SAVE EDITS</button>
+        </form>
+</body>
+
+</html>
