@@ -1,7 +1,10 @@
 const express = require('express');
 const User = require('../models/user.js');
 const { parse } = require('dotenv');
+const { default: mongoose } = require('mongoose');
 const router = express.Router();
+
+
 
 
 
@@ -132,6 +135,45 @@ router.put('/:eventId', async (req, res) => {
         console.error(err);
         res.status(500).send("Error updating event.");
     }
+});
+
+//  DELETE route/action
+// delete /:id
+// my events are a subdocument in my User model so BE CAREFUL when setting up DELETE
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const eventId = new mongoose.Types.ObjectId(req.params.id);
+       const user = await User.findOne({ 'events._id': eventId });
+       if (!user) {
+        return res.status(404).send('Event not found.');
+       }
+
+       user.events.pull({ _id: eventId });
+
+    //    user.events.id(req.params.id).remove(); //this will remove the event from the user's array
+      
+    // const index = user.events.findIndex(event => event._id === req.params.id);
+    // if (index === -1) {
+    //     return res.status(404).send('Event not found.');
+    // }
+
+    // user.events.splice(index, 1);
+       await user.save();
+// const event = user.events.id(eventId);
+
+// if (!event) {
+//     return res.status(404).send('Event not found.');
+// }
+//     event.remove();
+
+
+        res.redirect('/events/allevents');
+
+    } catch (err) {
+        console.error(err); 
+        res.status(500).send('Server Error');
+}
 });
 
 module.exports = router;
