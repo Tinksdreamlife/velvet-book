@@ -17,15 +17,27 @@ router.get('/new', (req, res) => {
 // SHOW all events after the new event is added
 
 router.post('/', async (req, res) => {
-    try {
 
-        const newEvent = req.body;
-        const username = req.session.username;
+        try {
         const user = req.user;
-
-        if (!user) {
+          if (!user) {
             return res.status(404).send("User not found.");
-        }
+          }
+        const newEvent = {
+            date: req.body.dateOfEvent,
+            venue: req.body.venueName,
+            income: req.body.income,
+            expenseHouseFee: req.body.expenseHouseFee,
+            expenseTipOut: req.body.expenseTipOut,
+            expenseTravel: req.body.expenseTravel,
+            expensePromo: req.body.expensePromo,
+            expenseOther: {
+                amount: req.body["expenseOther.amount"],
+                note: req.body["expenseOther.note"]
+            }
+        };
+
+        // const username = req.session.username;
 
         user.events.push(newEvent);
         await user.save();
@@ -38,6 +50,27 @@ router.post('/', async (req, res) => {
     }
 });
 
+//     try {
+
+//         const newEvent = req.body;
+//         const username = req.session.username;
+//         const user = req.user;
+
+//         if (!user) {
+//             return res.status(404).send("User not found.");
+//         }
+
+//         user.events.push(newEvent);
+//         await user.save();
+
+//         res.redirect('/events/allevents');
+
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).send("Something went wrong while saving the event.");
+//     }
+// });
+
 // GET allevents - Makes them seen but still not clickable
 router.get('/allevents', async (req, res) => {
     try {
@@ -49,7 +82,19 @@ router.get('/allevents', async (req, res) => {
 
         const populatedUser = await User.findById(user._id);
 
-        res.render('events/allevents', { events: populatedUser.events })
+        const sortedEvents = populatedUser.events
+            .map(event => ({
+                ...event.toObject(),
+                formattedDate: new Date(event.dateOfEvent).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                })
+            }))
+            .sort((a, b) => new Date(b.date) - new Date(a.date)); // Descending
+
+
+        res.render('events/allevents', { events: sortedEvents })
     } catch (err) {
         console.error(err);
         res.status(500).send("Error loading events.");
@@ -91,10 +136,10 @@ router.get('/:eventId/edit', async (req, res) => {
         const eventId = req.params.eventId;
 
         if (!user) return res.status(401).send("You must be logged in");
-            const populatedUser = await User.findById(user._id);
-            const event = populatedUser.events.id(eventId);
-           
-            if (!event) return res.status(404).send("Event not found.");
+        const populatedUser = await User.findById(user._id);
+        const event = populatedUser.events.id(eventId);
+
+        if (!event) return res.status(404).send("Event not found.");
 
         res.render('events/editevent', { event });
 
@@ -144,36 +189,36 @@ router.put('/:eventId', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const eventId = new mongoose.Types.ObjectId(req.params.id);
-       const user = await User.findOne({ 'events._id': eventId });
-       if (!user) {
-        return res.status(404).send('Event not found.');
-       }
+        const user = await User.findOne({ 'events._id': eventId });
+        if (!user) {
+            return res.status(404).send('Event not found.');
+        }
 
-       user.events.pull({ _id: eventId });
+        user.events.pull({ _id: eventId });
 
-    //    user.events.id(req.params.id).remove(); //this will remove the event from the user's array
-      
-    // const index = user.events.findIndex(event => event._id === req.params.id);
-    // if (index === -1) {
-    //     return res.status(404).send('Event not found.');
-    // }
+        //    user.events.id(req.params.id).remove(); //this will remove the event from the user's array
 
-    // user.events.splice(index, 1);
-       await user.save();
-// const event = user.events.id(eventId);
+        // const index = user.events.findIndex(event => event._id === req.params.id);
+        // if (index === -1) {
+        //     return res.status(404).send('Event not found.');
+        // }
 
-// if (!event) {
-//     return res.status(404).send('Event not found.');
-// }
-//     event.remove();
+        // user.events.splice(index, 1);
+        await user.save();
+        // const event = user.events.id(eventId);
+
+        // if (!event) {
+        //     return res.status(404).send('Event not found.');
+        // }
+        //     event.remove();
 
 
         res.redirect('/events/allevents');
 
     } catch (err) {
-        console.error(err); 
+        console.error(err);
         res.status(500).send('Server Error');
-}
+    }
 });
 
 module.exports = router;

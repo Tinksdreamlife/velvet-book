@@ -1,18 +1,19 @@
 <%- include('../partials/header.ejs') %>
 
-<main>
-  <h1>All Your Events</h1>
-  <ul>
-    <% user.events.forEach(event => { %>
-      <li>
-        <h2>
+  <main>
+    <h1>All Your Events</h1>
+    <ul class="event-list">
+      <% events.forEach(event => { %>
+        <li class="event-item">
           <a href="/events/<%= event._id %>">
-            <%= event.venueName %> — <%= new Date(event.dateOfEvent).toDateString() %>
+           <span class="event-date"><%= event.formattedDate %></span> - 
+          <span class="event-venue"><%= event.venueName %></span>
           </a>
-        </h2>
-      </li>
-    <% }) %>
-  </ul>
-</main>
+        </li>
+        <% }) %>
+    </ul>
+  </main>
 
-<%- include('../partials/footer.ejs') %>
+
+
+  <%- include('../partials/footer.ejs') %>
