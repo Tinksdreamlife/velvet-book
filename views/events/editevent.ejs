@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/header.ejs') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Event</title>
-</head>
-
-<body>
-    <%- include('../partials/_navbar.ejs') %>
+<main> 
         <h1>Edit an Event</h1>
 
         <form action="/events/<%= event._id %>?_method=PUT" method="POST">
@@ -52,6 +44,6 @@
 
             <button type="submit">SAVE EDITS</button>
         </form>
-</body>
+</main>
 
-</html>
+<%- include('../partials/footer.ejs') %>
