@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <%- include('../partials/_navbar.ejs') %>
-</head>
+<%- include('../partials/header.ejs') %>
 
-
-
-<body>
+<main>
 
     <h1>
         <%= event.venueName %> - <%= new Date(event.dateOfEvent).toDateString() %>
     </h1>
-
     <ul>
         <li><strong>Income:</strong> $<%= event.income %>
         </li>
@@ -48,5 +38,7 @@
     <!-- <a href="/events/<%= event._id %>/edit>Edit This Event"></a> -->
     <a href="/events/allevents">Back to all events</a>
 
-    </body>
-</html>
+
+</main>
+
+<%- include('../partials/footer.ejs') %>
