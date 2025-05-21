@@ -10,8 +10,9 @@
       <!-- <a href="/events/edit">EDIT EVENT</a> -->
       <!-- <a href="/events/delete">DELETE EVENT</a> -->
       <a href="/auth/sign-out">SIGN OUT</a>
-      <span>
-        <%= user.name %>
+      <span style="font-weight: bold; color: #4CAF50;">
+        <%= user.username %> 
+        <!-- the above needs to be formatted! -->
       </span>
       <% } else { %>
         <a href="/auth/sign-up">SIGN UP</a>
