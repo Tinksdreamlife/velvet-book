@@ -7,39 +7,39 @@
 
             <!-- Date of Event -->
             <label for="dateOfEvent">Date of Event:</label>
-            <input type="date" name="dateOfEvent" value="<%= event.dateOfEvent.toISOString().split('T')[0] %>" required /><br>
+            <input type="date" name="dateOfEvent" value="<%= event.dateOfEvent.toISOString().split('T')[0] %>" required />
 
             <!-- Venue Name -->
             <label for="venueName">Venue Name:</label>
-            <input type="text" name="venueName" value="<%= event.venueName %>" required /><br>
+            <input type="text" name="venueName" value="<%= event.venueName %>" required />
 
             <!-- Income -->
             <label for="income">Income ($):</label>
-            <input type="number" name="income" value="<%= event.income %>" step="0.01" required /><br>
+            <input type="number" name="income" value="<%= event.income %>" step="0.01" required />
 
             <!-- House Fee -->
             <label for="expenseHouseFee">House Fee ($):</label>
-            <input type="number" name="expenseHouseFee" value="<%= event.expenseHouseFee %>" step="0.01" required /><br>
+            <input type="number" name="expenseHouseFee" value="<%= event.expenseHouseFee %>" step="0.01" required />
 
             <!-- Tip Out -->
             <label for="expenseTipOut">Tip Out($):</label>
-            <input type="number" name="expenseTipOut" value="<%= event.expenseTipOut %>" step="0.01" required /><br>
+            <input type="number" name="expenseTipOut" value="<%= event.expenseTipOut %>" step="0.01" required />
 
             <!-- Travel -->
             <label for="expenseTravel">Travel ($):</label>
-            <input type="number" name="expenseTravel" value="<%= event.expenseTravel %>" step="0.01" required /> <br>
+            <input type="number" name="expenseTravel" value="<%= event.expenseTravel %>" step="0.01" required /> 
 
             <!-- Promo -->
             <label for="expensePromo">Promo ($):</label>
-            <input type="number" name="expensePromo" value="<%= event.expensePromo %>" step="0.01" required /> <br>
+            <input type="number" name="expensePromo" value="<%= event.expensePromo %>" step="0.01" required /> 
 
             <!-- Other Expenses written differently than other lines due to embedded Schema--> 
             <label for="expenseOtherAmount">Other Expense ($):</label>
-            <input type="number" name="expenseOther.amount" value="<% event.expenseOther?.amount || '' %>" step="0.01" required /><br>
+            <input type="number" name="expenseOther.amount" value="<% event.expenseOther?.amount || '' %>" step="0.01" required />
 
             <!-- Optional Note written differently than other lines due to embedded Schema-->
             <label for="expenseOtherNote">Other Expense Note:</label>
-            <input type="text" name="expenseOther.note" value="<%+ event.expenseOther?.note || '' %>" /><br>
+            <input type="text" name="expenseOther.note" value="<%+ event.expenseOther?.note || '' %>" />
 
 
             <button type="submit">SAVE EDITS</button>

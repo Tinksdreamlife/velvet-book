@@ -6,6 +6,8 @@
 body {
   margin: 0;
   height: 100vh;
+  /* display: flex;
+  flex-direction: column; */
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-color: #e5e2f4;
@@ -61,29 +63,51 @@ nav span {
 
 .username-style {
   font-weight: bold;
-  color: #4f3b78;
-  background-color: white;
-  padding: 0.5vmin 1vmin;
-  border-radius: 1.5vmin;
+  color: white; 
+  background-color: #4f3b78;
+  padding: 1vmin;
+  border-radius: 1vmin;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5vmin;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 5vmin 5vmin;
+  margin: 0 auto;
+  gap: 2vmin;
+  max-width: 800px;
+  width: 100%;
+}
+
+main h1 {
+  font-size: 4vmin;
+  margin-bottom: 2vmin;
+  color: #4f3b78;
+}
+
+main p {
+  text-align: justify;
 }
 
 form {
-  display: grid;
-  grid-template-columns: auto auto;
+  /* display: grid;
+  grid-template-columns: auto auto; */
+  display: flex;
+  flex-direction: column;
   gap: 2vmin;
+  align-items: center;
+  width: 100%;
 }
 
 form * {
   font-size: 2vmin;
   padding: 1vmin;
   border-radius: 1vmin;
+  width: 100%;
+  max-width: 400px;
 }
 
 input,
