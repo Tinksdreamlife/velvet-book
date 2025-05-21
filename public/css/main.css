@@ -8,36 +8,63 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  background-color: #e5e2f4;
 }
 
 nav,
 footer {
-  background-color: lightblue;
+  background-color: #927fbf;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2vmin;
   font-size: 2vh;
-  color: lightslategray;
+  color: black;
 }
 
 nav a {
   text-decoration: none;
-  color: slategray;
+  color: black;
   background-color: white;
   padding: 1vmin;
   border-radius: 1vmin;
 
   &:hover {
     color: gray;
-    background-color: lightslategray;
+    background-color: #4f3b78; 
     color: white;
   }
 }
 
 nav span {
   font-size: 1.5vmin;
-  color: lightslategray;
+  color: black;
+}
+
+.button-style {
+  text-decoration: none;
+  background-color: #4f3b78;
+  color: white;
+  padding: 1vmin;
+  border-radius: 1vmin;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.button-style:hover {
+  color: black;
+  background-color: white;
+}
+
+.username-style {
+  font-weight: bold;
+  color: #4f3b78;
+  background-color: white;
+  padding: 0.5vmin 1vmin;
+  border-radius: 1.5vmin;
 }
 
 main {
@@ -73,6 +100,8 @@ button:hover {
   background-color: lightslategray;
   color: white;
 }
+
+
 
 .error-msg {
   color: rgb(223, 116, 116);

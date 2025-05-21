@@ -83,4 +83,3 @@ app.use('/events', eventsRouter); //for the NEW, EDIT and DELETE events
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });
-
