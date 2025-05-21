@@ -58,6 +58,7 @@ app.use(require('./middleware/add-user-to-req-and-locals'));
 
 // configures EJS to support root-based includes:
 const path = require('path');
+const User = require("./models/user");
 app.set('views', path.join(__dirname, 'views'));
 
 // Routes below
@@ -66,6 +67,22 @@ app.set('views', path.join(__dirname, 'views'));
 app.get('/', (req, res) => {
   res.render('home.ejs');
 });
+
+// DASHBOARD route for users when signed in!
+app.get('/dashboard', async (req, res) => {
+  if (!req.session.userId) {
+    return res.redirect('/auth/sign-in');
+  }
+
+  const user = await User.findById(req.session.userId);
+  if (!user) {
+    return res.redirect('/auth/sign-in');
+  }
+
+  res.render('dashboard', { user });
+});
+
+
 
 // The '/auth' is the "starts with" path.  The
 // paths defined in the router/controller will be

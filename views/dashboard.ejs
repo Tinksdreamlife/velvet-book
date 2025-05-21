@@ -1,0 +1,14 @@
+<%- include('./partials/header.ejs') %>
+
+    <main>
+        <h1>Welcome, <%= user.username %>!</h1>
+        <p>
+            What would you like to do today?
+
+        </p>
+        <a href="/events/allevents" class="button-style">View All Events</a>
+        <p>(On this page you can choose to EDIT or DELETE an event.)</p>
+        <a href="/events/new" class="button-style">Add New Event</a>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
