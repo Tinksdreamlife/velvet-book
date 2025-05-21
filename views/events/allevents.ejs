@@ -1,28 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/header.ejs') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>ALL EVENTS</title>
-</head>
+<main>
+  <h1>All Your Events</h1>
+  <ul>
+    <% user.events.forEach(event => { %>
+      <li>
+        <h2>
+          <a href="/events/<%= event._id %>">
+            <%= event.venueName %> — <%= new Date(event.dateOfEvent).toDateString() %>
+          </a>
+        </h2>
+      </li>
+    <% }) %>
+  </ul>
+</main>
 
-<body>
-    <%- include('../partials/_navbar.ejs') %>
-
-        <<h1>All Your Events</h1>
-            <ul>
-                <% user.events.forEach(event => { %>
-                    <li>
-                        <h2>
-                            <a href="/events/<%= event._id %>">
-                                <%= event.venueName %> — <%= new Date(event.dateOfEvent).toDateString() %>
-                            </a>
-                        </h2>
-                    </li>
-                    <% }) %>
-            </ul>
-
-</body>
-
-</html>
+<%- include('../partials/footer.ejs') %>
