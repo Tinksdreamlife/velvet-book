@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Event</title>
-</head>
+ <%- include('../partials/header.ejs') %>
 
-<body>
-    <%- include('../partials/_navbar.ejs') %>
-        <h1>Add a New Event</h1>
+
+<main>
+ <h1>Add a New Event</h1>
 
         <form action="/events" method="POST">
 
@@ -52,6 +46,6 @@
 
             <button type="submit">ADD EVENT</button>
         </form>
-</body>
+</main>
 
-</html>
+<%- include('../partials/footer.ejs') %>
