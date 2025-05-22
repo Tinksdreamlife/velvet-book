@@ -1,14 +1,16 @@
 <%- include('./partials/header.ejs') %>
 
     <main>
-        <h1>Welcome, <%= user.username %>!</h1>
-        <p>
-            What would you like to do today?
-
+        <h1 class="dashboard-title"><strong>Welcome, <%= user.username %>!</strong></h1>
+        <p class="dashboard-paragraph">
+           <strong>What are you working on today?</strong> 
         </p>
+        <br>
         <a href="/events/allevents" class="button-style">View All Events</a>
-        <p>(On this page you can choose to EDIT or DELETE an event.)</p>
+        <p class="dashboard-paragraph">(EDIT/DELETE events on the 'View All Events' page.)</p>
+        <br>
         <a href="/events/new" class="button-style">Add New Event</a>
+        <p class="dashboard-paragraph">(ADD a new entry on the 'Add New Event' page.)</p>
     </main>
 
     <%- include('./partials/footer.ejs') %>

@@ -184,6 +184,16 @@ button:hover {
   text-align: right;
 }
 
+.dashboard-title {
+  font-size: 6vmin;
+  color: #4f3b78;
+  margin-bottom: 0;
+}
+
+.dashboard-paragraph {
+  margin-top: 0;
+}
+
 .error-msg {
   color: rgb(223, 116, 116);
 }

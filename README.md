@@ -12,6 +12,8 @@ NOTE: The final version of the app will be in partnership with a financial profe
 
 <!-- Needs to be updated -->
 ![Initial Game Interface](<Image 4-29-25 at 3.45 PM.JPG>)
+(Welcome Screen photo by Photo by <a href="https://unsplash.com/@bradynshock?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Bradyn Shock</a> on <a href="https://unsplash.com/photos/white-ceramic-mug-on-brown-wooden-table-r0KP1Ua9-A4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+      and edited by Tink.)
 
 ## Sample of user experience 
 
