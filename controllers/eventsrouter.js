@@ -17,25 +17,27 @@ router.get('/new', (req, res) => {
 // SHOW all events after the new event is added
 
 router.post('/', async (req, res) => {
-
-        try {
+    console.log('📨 Received form submission:', req.body);
+    try {
         const user = req.user;
-          if (!user) {
+        if (!user) {
             return res.status(404).send("User not found.");
-          }
+        }
         const newEvent = {
-            date: req.body.dateOfEvent,
-            venue: req.body.venueName,
-            income: req.body.income,
-            expenseHouseFee: req.body.expenseHouseFee,
-            expenseTipOut: req.body.expenseTipOut,
-            expenseTravel: req.body.expenseTravel,
-            expensePromo: req.body.expensePromo,
+            dateOfEvent: new Date(req.body.dateOfEvent),
+            venueName: req.body.venueName,
+            income: Number(req.body.income),
+            expenseHouseFee: Number(req.body.expenseHouseFee),
+            expenseTipOut: Number(req.body.expenseTipOut),
+            expenseTravel: Number(req.body.expenseTravel),
+            expensePromo: Number(req.body.expensePromo),
             expenseOther: {
-                amount: req.body["expenseOther.amount"],
+                amount: Number(req.body["expenseOther.amount"]),
                 note: req.body["expenseOther.note"]
             }
         };
+
+
 
         // const username = req.session.username;
 
