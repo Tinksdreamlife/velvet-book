@@ -35,11 +35,11 @@
 
             <!-- Other Expenses written differently than other lines due to embedded Schema--> 
             <label for="expenseOtherAmount">Other Expense ($):</label>
-            <input type="number" name="expenseOther.amount" value="<% event.expenseOther?.amount || '' %>" step="0.01" required />
+            <input type="number" name="expenseOther.amount" value="<%= event.expenseOther?.amount || '' %>" step="0.01" required />
 
             <!-- Optional Note written differently than other lines due to embedded Schema-->
             <label for="expenseOtherNote">Other Expense Note:</label>
-            <input type="text" name="expenseOther.note" value="<%+ event.expenseOther?.note || '' %>" />
+            <input type="text" name="expenseOther.note" value="<%= event.expenseOther?.note || '' %>" />
 
 
             <button type="submit">SAVE EDITS</button>

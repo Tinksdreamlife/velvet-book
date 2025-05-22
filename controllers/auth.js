@@ -13,8 +13,6 @@ router.get('/sign-up', (req, res) => {
 });
 
 // POST /auth/sign-up
-
-// POST /auth/sign-up
 router.post('/sign-up', async (req, res) => {
   try {
     const { username, password, confirmPassword } = req.body;
@@ -37,10 +35,7 @@ router.post('/sign-up', async (req, res) => {
       password: hashedPassword,
     });
 
-    // Log the user in by setting session
     req.session.userId = user._id;
-
-    // Redirect to dashboard
     res.redirect('/dashboard');
 
   } catch (err) {
@@ -48,19 +43,6 @@ router.post('/sign-up', async (req, res) => {
   }
 });
 
-
-// router.post('/sign-up', async (req, res) => {
-//   try {
-//     if (req.body.password !== req.body.confirmPassword) throw new Error('Passwords Do Not Match');
-//     req.body.password = bcrypt.hashSync(req.body.password, SALT_ROUNDS);
-//     const user = await User.create(req.body);
-//     req.session.userId = user._id;
-//     res.redirect('/dashboard')
-//   } catch (err) {
-//     if (err.message.includes('duplicate key')) err.message = 'User Already Exists';
-//     res.render('auth/sign-up.ejs', { error: err.message });
-//   }
-// });
 
 // GET /auth/sign-in 
 router.get('/sign-in', (req, res) => {
@@ -70,7 +52,11 @@ router.get('/sign-in', (req, res) => {
 // POST /auth/sign-in
 router.post('/sign-in', async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.body.username });
+    const username = req.body.username.trim().toLowerCase();
+    console.log("Sign-in attempt for username:", username)
+    const user = await User.findOne({ username });
+    console.log("User found:", username)
+    
     if (!user) throw new Error();
     const isValidPassword = bcrypt.compareSync(req.body.password, user.password);
     if (!isValidPassword) throw new Error();

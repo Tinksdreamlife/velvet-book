@@ -50,7 +50,7 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     required: true,
-    trip: true,
+    trim: true,
     lowercase: true,
   },
   password: {
