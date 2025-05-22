@@ -1,20 +1,15 @@
 <nav>
   <a href="<%= user ? '/dashboard' : '/' %>">🏠</a>
 
-
-
-
   <div>
     <% if (user) { %>
       <a href="/events/allevents">VIEW ALL EVENTS</a>
       <a href="/events/new">ADD EVENT</a>
-      <!-- <a href="/events/edit">EDIT EVENT</a> -->
-      <!-- <a href="/events/delete">DELETE EVENT</a> -->
       <a href="/auth/sign-out">SIGN OUT</a>
       <span class="username-style">
-        <%= user.username %> 
-        <!-- the above needs to be formatted! -->
+        <%= user.username %>
       </span>
+
       <% } else { %>
         <a href="/auth/sign-up">SIGN UP</a>
         <a href="/auth/sign-in">SIGN IN</a>

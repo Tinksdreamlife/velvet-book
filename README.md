@@ -65,7 +65,7 @@ Try the live demo here: The Velvet Book Demo (URL placeholder—update when read
 
 Tink is a seasoned adult entertainer, writer, and digital content creator, who has spent years building and managing  a successful personal brand in a competitive industry. 
 
-As the sole stragtegist behind her own business, she has developed a deep understanding of personal finance, audience engagement, and sustainable brand growth - all while navigating the unique challenges faced by the independent contractors in adult entertainment.
+As the sole strategist behind her own business, she has developed a deep understanding of personal finance, audience engagement, and sustainable brand growth - all while navigating the unique challenges faced by the independent contractors in adult entertainment.
 
 Her firsthand experience in managing a multi-channel adult business - from income and expenses to marketing and content creation - makes her uniquely positioned to build tools that directly serve her community. 
 

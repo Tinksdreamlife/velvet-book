@@ -1,25 +1,24 @@
 <%- include('../partials/header.ejs') %>
 
-<main>
-<h1>Sign In</h1>
+  <main>
+    <h1>Sign In</h1>
 
-<form action="/auth/sign-in" method="POST">
+    <form action="/auth/sign-in" method="POST">
 
-   <label for="username">Username:</label>
-    <input type="text" name="username" id="username" required />
-    
-  <!-- Add back if EMAIL is REQUIRED IN ASSIGNMENT -->
-  <!-- <label for="email">Email:</label>
-  <input type="email" name="email" id="email" /> -->
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required />
 
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password" />
-  
-  <button type="submit">SIGN IN</button>
-</form>
 
-<p class="error-msg"><%= error %></p>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" />
 
-</main>
+      <button type="submit">SIGN IN</button>
+    </form>
 
-<%- include('../partials/footer.ejs') %>
+    <p class="error-msg">
+      <%= error %>
+    </p>
+
+  </main>
+
+  <%- include('../partials/footer.ejs') %>

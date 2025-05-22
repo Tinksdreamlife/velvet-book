@@ -13,8 +13,8 @@ const eventSchema = new mongoose.Schema({
   venueName: {
     type: String,
     required: true,
-  }, 
-  
+  },
+
   income: {
     type: Number,
     required: true,
@@ -41,9 +41,9 @@ const eventSchema = new mongoose.Schema({
   },
 
   expenseOther: {
-  amount: { type: Number, required: true },
-  note: { type: String }
-}
+    amount: { type: Number, required: true },
+    note: { type: String }
+  }
 })
 
 const userSchema = new Schema({
@@ -56,11 +56,6 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
- 
-  // NOTE: 05-16-25 the timestamp function was crashing 
-  // the app so I need to look at why and what it was made for
-  // Mongoose will maintain a createdAt & updatedAt property
-  // timestamps: true
 
   events: [eventSchema]
 

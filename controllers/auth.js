@@ -22,8 +22,6 @@ router.post('/sign-up', async (req, res) => {
     req.session.userId = user._id;
     res.redirect('/dashboard')
   } catch (err) {
-    // This code will execute if an error happens
-    // in the try block above
     if (err.message.includes('duplicate key')) err.message = 'User Already Exists';
     res.render('auth/sign-up.ejs', { error: err.message });
   }
@@ -43,7 +41,6 @@ router.post('/sign-in', async (req, res) => {
     const isValidPassword = bcrypt.compareSync(req.body.password, user.password);
     if (!isValidPassword) throw new Error();
     req.session.userId = user._id;
-    // TODO: Redirect to what you want in your app
     res.redirect('/dashboard');
   } catch {
     res.render('auth/sign-in.ejs', { error: 'Invalid Credentials' });
@@ -55,7 +52,5 @@ router.get('/sign-out', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });
-
-
 
 module.exports = router;

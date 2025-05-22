@@ -6,8 +6,6 @@
 body {
   margin: 0;
   height: 100vh;
-  /* display: flex;
-  flex-direction: column; */
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-color: #e5e2f4;
@@ -33,7 +31,7 @@ nav a {
 
   &:hover {
     color: gray;
-    background-color: #4f3b78; 
+    background-color: #4f3b78;
     color: white;
   }
 }
@@ -63,7 +61,7 @@ nav span {
 
 .username-style {
   font-weight: bold;
-  color: white; 
+  color: white;
   background-color: #4f3b78;
   padding: 1vmin;
   border-radius: 1vmin;
@@ -93,8 +91,6 @@ main p {
 }
 
 form {
-  /* display: grid;
-  grid-template-columns: auto auto; */
   display: flex;
   flex-direction: column;
   gap: 2vmin;
@@ -111,7 +107,7 @@ form * {
 }
 
 form label {
-  font-size:  2.5vmin;
+  font-size: 2.5vmin;
   font-weight: bold;
   margin-bottom: 0;
   padding-bottom: 0;
@@ -160,7 +156,7 @@ button:hover {
   transition: background-color 0.2s ease;
   transition: black;
   font-size: 2vmin;
-  box-shadow: 0 0 5px rgba( 0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   max-width: 100%;
   margin: 0 auto;
 }
