@@ -1,24 +1,33 @@
 # The Velvet Book
 
-This is Tink's second JavaScript project. The title is a combined reference to the world of accounting in which account entries used to be in a dedicated book, as well as to the luxury fantasy element of adult entertaining. (Velvet, symbolic for power, wealth, and sophistication, was originally made from silk. In a similar fashion, the adult entertainment world was originally created to be "luxury" entertainment that only the rich could afford.) 
+**The Velvet Book** is an innovative financial tracking app developed specifically for independent contractors in the adult entertainment industry.
 
-Tink, a professional dancer, writer, and content creator, recognized a need within the professional adult entertainment community and developed this app to fill it. After years of trying to find accountants who understood the nuances of the industry to help track the financial side (and until 2023, no accountant specifically served the spicy industry), Tink developed a system to properly track income and expenses for independent contractors in this industry. 
+Created by Tink, a professional dancer, writer, and content creator, this app addresses a critical gap in accounting and expense management tailored to the unique needs in this niche market.
 
-NOTE: The final version of the app will be in partnership with a financial professional to ensure users of the app are given current and relevant experiences while using the app.
+The app's name references the traditional accounting ledger, known as a "book", and evokes luxury and sophistication through "Velvet", symbolizing power, wealth, and exclusivity - values reflected in the high-end adult entertainment world.
+
+# Problem Statement
+
+Until recently, adult entertainers lacked access to financial tools and accounting professionals who truly understand the nuances of the their industry. Traditional accountants often cannot accommodate the complex, non-standard income and expense structures common in this line of work. The unmet need results in inefficient tracking, missed deductions, and financial insecurity for independent contractors.
+
+# Solution
+
+**The Velvet Book** offers a secure, user-friendly platform where adult entertainers can seamlessly log income, expenses, and event details in real time. The app categorizes and tracks various expense types (house fees, tips, travel, promotions, and other), empowering users to maintain accurate financial records and gain better insights into their profitability. 
+
+Planned collaboration with financial professionals will further ensure that the app provides compliant, up-to-date advice and reporting features tailed to this industry's regulatory environment.
 
 # Screenshot
 
-## The title screen of the app:
+## The welcome (not signed in) screen of the app:
 
 <!-- Needs to be updated -->
-![Initial Game Interface](<Image 4-29-25 at 3.45 PM.JPG>)
+![Welcome Page](public/images/welcomepage.jpeg)
 (Welcome Screen photo by Photo by <a href="https://unsplash.com/@bradynshock?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Bradyn Shock</a> on <a href="https://unsplash.com/photos/white-ceramic-mug-on-brown-wooden-table-r0KP1Ua9-A4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
       and edited by Tink.)
 
 ## Sample of user experience 
 
-<!-- Needs to be updated -->
-![Game in Progress](<Game IP.jpeg>)
+![All Events Page](public/images/allevents.png)
 
 # Technologies Used
 
@@ -35,17 +44,29 @@ NOTE: The final version of the app will be in partnership with a financial profe
 
 # Getting Started
 
-<!-- URL needs to be updated -->
-[Click to Try out "The Velvet Book"](https://tinksdreamlife.github.io/quiz-patron-dancer/)
+Try the live demo here: The Velvet Book Demo (URL placeholder—update when ready)
+<!-- UPDATE URL!! -->
 
-# Next Steps 
+# Roadmap & Next Steps 
 
-<!-- This whole section needs to be updated -->
+- Integrate partnership with certified financial professionals for tax advice and compliance
 
-- Add a more robust tips/suggestions/best practices response to the answers.
+- Add detailed analytics dashboards to visualize income and expense trends
 
-- Make the questions more complex than true/false
+- Develop mobile-responsive design and native mobile apps (The current model is responsive but further integration planned)
 
-- Create an online database where dancers and patrons can make suggestions to add to the question base
+-Enhance user onboarding with tutorials, best practices, and FAQs
 
-- Have future games include OF creator versions and porn star versions with guest cameos and videos as bonus prizes to unlock. Potentially createa full video game with characters based on dancers and porn stars - trademark content with potential royalties for likenesses used. 
+-Explore partnerships with payment platforms and bookkeeping services
+
+- Add search functionality to allow user to quickly pull up information by a variety of variables
+
+# About the Founder
+
+Tink is a seasoned adult entertainer, writer, and digital content creator, who has spent years building and managing  a successful personal brand in a competitive industry. 
+
+As the sole stragtegist behind her own business, she has developed a deep understanding of personal finance, audience engagement, and sustainable brand growth - all while navigating the unique challenges faced by the independent contractors in adult entertainment.
+
+Her firsthand experience in managing a multi-channel adult business - from income and expenses to marketing and content creation - makes her uniquely positioned to build tools that directly serve her community. 
+
+**The Velvet Book** is the culmination of that expertise: a powerful, intuitive platform designed by someone who knows the industry from the inside out and has successfully run a business within it. 
