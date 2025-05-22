@@ -93,7 +93,7 @@ router.get('/allevents', async (req, res) => {
                     day: 'numeric'
                 })
             }))
-            .sort((a, b) => new Date(b.date) - new Date(a.date)); // Descending
+            .sort((a, b) => new Date(b.dateOfEvent) - new Date(a.dateOfEvent)); // Descending
 
 
         res.render('events/allevents', { events: sortedEvents })
