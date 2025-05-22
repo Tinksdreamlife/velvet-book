@@ -6,14 +6,15 @@
       <% events.forEach(event=> { %>
         <li class="event-item">
           <a href="/events/<%= event._id %>">
+            <span class="event-left">
             <span class="event-date">
               <%= event.formattedDate %>
-            </span>
-            <span> - </span>
+            </span> (
+            <span class="event-right"> 
             <span class="event-venue">
               <%= event.venueName %>
+            </span> )
             </span>
-
           </a>
         </li>
         <% }) %>
