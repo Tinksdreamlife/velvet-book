@@ -20,8 +20,7 @@ Planned collaboration with financial professionals will further ensure that the 
 
 ## The welcome (not signed in) screen of the app:
 
-<!-- Needs to be updated -->
-![Welcome Page](public/images/welcomepage.jpeg)
+![Welcome Page](public/images/welcomepage.png)
 (Welcome Screen photo by Photo by <a href="https://unsplash.com/@bradynshock?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Bradyn Shock</a> on <a href="https://unsplash.com/photos/white-ceramic-mug-on-brown-wooden-table-r0KP1Ua9-A4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
       and edited by Tink.)
 
@@ -44,8 +43,7 @@ Planned collaboration with financial professionals will further ensure that the 
 
 # Getting Started
 
-Try the live demo here: The Velvet Book Demo (URL placeholder—update when ready)
-<!-- UPDATE URL!! -->
+Try the live demo here: The Velvet Book Demo ([The Velvet Book on Heroku](https://velvetbook-ab9c6fcfe5d4.herokuapp.com/))
 
 # Roadmap & Next Steps 
 

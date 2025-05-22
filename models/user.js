@@ -1,6 +1,5 @@
 const { text } = require('express');
 const mongoose = require("mongoose");
-// shortcut variable
 const Schema = mongoose.Schema;
 
 const eventSchema = new mongoose.Schema({
@@ -51,6 +50,8 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     required: true,
+    trip: true,
+    lowercase: true,
   },
   password: {
     type: String,
