@@ -11,7 +11,6 @@ router.get('/new', (req, res) => {
 
 // SHOW all events after the new event is added
 router.post('/', async (req, res) => {
-    console.log('📨 Received form submission:', req.body);
     try {
         const user = req.user;
         if (!user) {

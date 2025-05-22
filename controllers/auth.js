@@ -53,9 +53,7 @@ router.get('/sign-in', (req, res) => {
 router.post('/sign-in', async (req, res) => {
   try {
     const username = req.body.username.trim().toLowerCase();
-    console.log("Sign-in attempt for username:", username)
     const user = await User.findOne({ username });
-    console.log("User found:", username)
     
     if (!user) throw new Error();
     const isValidPassword = bcrypt.compareSync(req.body.password, user.password);
